@@ -14,19 +14,18 @@ export default class CustomModal extends Component {
     return (
       <Modal
         animationType={"none"}
-        transparent
         hardwareAccelerated
         visible={this.props.visible}
         onRequestClose={this.props.onCancel}
       >
-        <View style={styles.backgroundOverlay}>
-          <Text style={{ color: "black" }}>{this.props.title}</Text>
+        <View style={styles.bOverlay}>
           <Image
             source={{ uri: this.props.imageUri }}
             style={styles.backgroundImage}
           />
+          <Text style={styles.titleText}>{this.props.title}</Text>
           <TouchableHighlight onPress={this.props.onCancel}>
-            <Text style={{ color: "black" }}>Close</Text>
+            <Text style={styles.closeText}>Close</Text>
           </TouchableHighlight>
         </View>
       </Modal>
@@ -35,6 +34,11 @@ export default class CustomModal extends Component {
 }
 
 const styles = StyleSheet.create({
+  bOverlay: {
+    flex: 1,
+    flexDirection: "column"
+    // backgroundColor:'red',
+  },
   backgroundOverlay: {
     justifyContent: "center",
     alignItems: "center",
@@ -48,12 +52,24 @@ const styles = StyleSheet.create({
     elevation: 20
   },
   backgroundImage: {
-    justifyContent: "center",
-    alignItems: "center",
-    height: 260,
-    width: 240,
-    resizeMode: "cover",
-    borderRadius: 10
+    flex: 1,
+    marginHorizontal: 30,
+    marginBottom: 100,
+    marginTop: 20,
+    resizeMode: "contain"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "orange",
+    marginBottom: 40
+  },
+  closeText: {
+    fontSize: 15,
+    marginBottom: 20,
+    textAlign: "center",
+    color: "grey"
   }
 });
 
