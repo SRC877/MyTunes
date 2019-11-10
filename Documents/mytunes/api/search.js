@@ -4,7 +4,7 @@ export default async ({
   query
 }) => {
   const uri = `${apiPrefix}/search?term=${query}`;
-  console.log('search begin, uri =', uri);
+ // console.log('search begin, uri =', uri);
   const res = await fetch(uri, {
     method: 'GET'
   });
@@ -16,7 +16,7 @@ export default async ({
   }
 
   const {results} = json;
-  console.log('search result',results);
+ // console.log('search result',results);
   // const items = json.tracks.items;
   return results.map(result => ({
     id: result.trackId,
@@ -24,5 +24,5 @@ export default async ({
     album: result.collectionName,
     imageUri: result.artworkUrl100
   }));
-  console.log('search end');
+ // console.log('search end');
 };

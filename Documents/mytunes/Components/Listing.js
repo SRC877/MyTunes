@@ -3,7 +3,7 @@ import { FlatList, Text,View,StyleSheet } from 'react-native';
 
 import Separator from './Separator';
 import Item from './Item';
-
+import CustomModal from './CustomModal';
 export default ({ items, onEndReached }) => (
   <View style={styles.container}>
   <FlatList
@@ -16,6 +16,10 @@ export default ({ items, onEndReached }) => (
     keyExtractor={item => item.id}
     onEndReached={onEndReached}
   />
+  {/* <CustomModal
+    visible={true}
+  /> */}
+
   </View>
 );
 
@@ -24,7 +28,7 @@ const styles = StyleSheet.create({
    // flexDirection: 'column',
     alignItems: 'center',
     justifyContent:'center',
-   // backgroundColor:'blue',
+    backgroundColor:'blue',
     margin: 5,
   },
   image: {

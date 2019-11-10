@@ -41,7 +41,7 @@ export default class App extends React.Component {
       query: this.state.query
     });
 
-    console.log(newItems);
+    //console.log(newItems);
 
     this.setState({
       isFetching: false,
